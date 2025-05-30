@@ -15,11 +15,12 @@ module.exports = {
       params: {
         uri: "torch.js",
         params: {
-          venv: "env",                // Edit this to customize the venv folder path
-          path: "app",                // Edit this to customize the path to start the shell from
-          // xformers: true   // uncomment this line if your project requires xformers
-          // triton: true   // uncomment this line if your project requires triton
-          // sageattention: true   // uncomment this line if your project requires sageattention
+          venv_python: "3.12",
+          venv: "env",
+          path: "app",
+          // xformers: true,
+          // triton: true,
+          // sageattention: true
         }
       }
     },
@@ -27,13 +28,21 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
-        path: "app",                // Edit this to customize the path to start the shell from
+        venv: "env",
+        path: "app",
         message: [
           "uv pip install gradio devicetorch",
           "uv pip install -r requirements.txt"
         ]
       }
     },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "DFloat11/BAGEL-7B-MoT-DF11" ],
+        "local-dir": "BAGEL-7B-MoT-DF11",
+      }
+    }
   ]
 }
