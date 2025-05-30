@@ -19,7 +19,7 @@ module.exports = {
           venv: "env",
           path: "app",
           // xformers: true,
-          // triton: true,
+          triton: true,
           // sageattention: true
         }
       }
@@ -32,7 +32,7 @@ module.exports = {
         path: "app",
         message: [
           "uv pip install gradio devicetorch",
-          "uv pip install -r requirements.txt"
+          "uv pip install -r ../requirements.txt"
         ]
       }
     },
