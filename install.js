@@ -1,6 +1,13 @@
 module.exports = {
   run: [
-    // Edit this step to customize the git repository to use
+    {
+      when: "{{gpu === 'amd' || platform === 'darwin'}}",
+      method: "notify",
+      params: {
+        html: "This app requires an NVIDIA GPU. Not compatible with AMD GPUs and macOS."
+      },
+      next: null
+    },
     {
       method: "shell.run",
       params: {
@@ -9,7 +16,6 @@ module.exports = {
         ]
       }
     },
-    // Delete this step if your project does not use torch
     {
       method: "script.start",
       params: {
@@ -24,7 +30,6 @@ module.exports = {
         }
       }
     },
-    // Edit this step with your custom install commands
     {
       method: "shell.run",
       params: {
