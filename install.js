@@ -42,11 +42,10 @@ module.exports = {
       }
     },
     {
-      method: "hf.download",
+      method: "shell.run",
       params: {
         path: "app",
-        "_": [ "DFloat11/BAGEL-7B-MoT-DF11" ],
-        "local-dir": "BAGEL-7B-MoT-DF11",
+        message: "hf download DFloat11/BAGEL-7B-MoT-DF11 --local-dir BAGEL-7B-MoT-DF11 && dir"
       }
     }
   ]
